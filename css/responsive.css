@@ -1,0 +1,670 @@
+/* ===================================
+   FINANCIAL DASHBOARD - RESPONSIVE STYLES
+   
+   This file contains all responsive design styles organized by breakpoint.
+   Main styles are in styles.css - this file only contains media queries.
+   
+   Breakpoints:
+   - Mobile: < 576px
+   - Tablet: 576px - 991px  
+   - Desktop: ≥ 992px
+   - Large Desktop: ≥ 1280px
+   - Extra Large Desktop: ≥ 1440px
+   - Ultra Wide: ≥ 1920px
+   
+   =================================== */
+
+/* ===================================
+   MOBILE STYLES (< 576px)
+   Optimized for small screens with single column layouts
+   =================================== */
+
+@media (width <= 575px) {
+    /* Global Mobile Adjustments */
+    body {
+        font-size: 14px;
+        padding-bottom: 70px;
+    }
+    
+    .container-fluid {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    
+    /* Header Section - Mobile */
+    .dashboard-header {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+    
+    .greeting-text {
+        font-size: 24px;
+    }
+    
+    .tagline {
+        font-size: 12px;
+    }
+    
+    .profile-section {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .avatar {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .notification-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    /* Financial Metrics - Mobile */
+    .financial-metrics {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .metric-card {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .metric-value {
+        font-size: 24px;
+    }
+    
+    .metric-label {
+        font-size: 13px;
+    }
+    
+    /* Activity and Transfer - Mobile */
+    .activity-transfer-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .spending-activity-section,
+    .quick-transfer-section {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .spending-activity-section h3,
+    .quick-transfer-section h3 {
+        font-size: 18px;
+    }
+    
+    .chart-placeholder {
+        height: 200px;
+        min-height: 200px;
+    }
+    
+    .contact-avatar {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .contact-item {
+        min-width: 60px;
+    }
+    
+    .contact-name {
+        font-size: 11px;
+    }
+    
+    .transfer-amount {
+        font-size: 16px;
+    }
+    
+    .send-button {
+        width: 44px;
+        height: 44px;
+    }
+    
+    /* Transactions - Mobile */
+    .transactions-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .transactions-container {
+        padding: var(--spacing-md);
+    }
+    
+    .transactions-container h3 {
+        font-size: 18px;
+    }
+    
+    .transactions-list {
+        max-height: 350px;
+    }
+    
+    .transaction-item {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+    
+    .transaction-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .transaction-icon i {
+        font-size: 18px;
+    }
+    
+    .transaction-name {
+        font-size: 14px;
+    }
+    
+    .transaction-date {
+        font-size: 11px;
+    }
+    
+    .transaction-amount {
+        font-size: 16px;
+    }
+    
+    /* Analytics - Mobile */
+    .analytics-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .category-chart-section,
+    .budget-section,
+    .income-expenses-section,
+    .subscriptions-section {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .category-chart-section h3,
+    .budget-section h3,
+    .income-expenses-section h3,
+    .subscriptions-section h3 {
+        font-size: 18px;
+    }
+    
+    .donut-chart-placeholder {
+        height: 250px;
+    }
+    
+    .progress-placeholder {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .progress-placeholder::after {
+        font-size: 24px;
+    }
+    
+    .bar-chart-placeholder {
+        height: 200px;
+        padding: var(--spacing-sm);
+    }
+    
+    .subscription-total {
+        font-size: 28px;
+    }
+    
+    .time-filter {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+    
+    /* Card Management - Mobile */
+    .card-management-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .cards-section,
+    .card-settings-section,
+    .card-details-section {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .cards-section h3,
+    .card-settings-section h3,
+    .card-details-section h3 {
+        font-size: 18px;
+    }
+    
+    .credit-card {
+        max-width: 100%;
+        padding: var(--spacing-md);
+    }
+    
+    .card-chip {
+        width: 40px;
+        height: 32px;
+    }
+    
+    .card-number {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+    
+    .card-holder,
+    .card-expiry {
+        font-size: 12px;
+    }
+    
+    .current-limit {
+        font-size: 24px;
+    }
+    
+    .add-card-button {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .add-card-button i {
+        font-size: 18px;
+    }
+    
+    /* Settings and Profile - Mobile */
+    .settings-profile-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .profile-card,
+    .settings-group,
+    .logout-section {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .profile-name {
+        font-size: 20px;
+    }
+    
+    .profile-email {
+        font-size: 13px;
+    }
+    
+    .settings-group-title {
+        font-size: 16px;
+    }
+    
+    .settings-group .setting-item {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+    
+    .settings-group .setting-item i:first-child {
+        font-size: 18px;
+    }
+    
+    .setting-label {
+        font-size: 14px;
+    }
+    
+    /* Bottom Navigation - Mobile */
+    .bottom-navigation {
+        padding: 6px 0;
+    }
+    
+    .nav-item {
+        padding: 6px 8px;
+        gap: 2px;
+    }
+    
+    .nav-item i {
+        font-size: 20px;
+    }
+    
+    .nav-item span {
+        font-size: 10px;
+    }
+}
+
+/* ===================================
+   TABLET STYLES (576px - 991px)
+   Two-column layouts with optimized spacing
+   =================================== */
+
+@media (width >= 576px) and (width <= 991px) {
+    /* Global Tablet Adjustments */
+    body {
+        font-size: 15px;
+    }
+    
+    .container-fluid {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    /* Header Section - Tablet */
+    .greeting-text {
+        font-size: 28px;
+    }
+    
+    .tagline {
+        font-size: 14px;
+    }
+    
+    /* Financial Metrics - Tablet */
+    .metric-card {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .metric-value {
+        font-size: 26px;
+    }
+    
+    /* Activity and Transfer - Tablet */
+    .spending-activity-section,
+    .quick-transfer-section {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .chart-placeholder {
+        height: 220px;
+    }
+    
+    /* Transactions - Tablet */
+    .transactions-list {
+        max-height: 400px;
+    }
+    
+    .transaction-item {
+        padding: var(--spacing-md);
+    }
+    
+    /* Analytics - Tablet */
+    .category-chart-section,
+    .budget-section,
+    .income-expenses-section,
+    .subscriptions-section {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .donut-chart-placeholder {
+        height: 280px;
+    }
+    
+    .progress-placeholder {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .bar-chart-placeholder {
+        height: 230px;
+    }
+    
+    /* Card Management - Tablet */
+    .cards-section,
+    .card-settings-section,
+    .card-details-section {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .credit-card {
+        max-width: 350px;
+    }
+    
+    .card-number {
+        font-size: 20px;
+    }
+    
+    /* Settings and Profile - Tablet */
+    .profile-card,
+    .settings-group,
+    .logout-section {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .profile-avatar {
+        width: 90px;
+        height: 90px;
+    }
+    
+    /* Bottom Navigation - Tablet */
+    .nav-item {
+        max-width: 120px;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .nav-item i {
+        font-size: 22px;
+    }
+    
+    .nav-item span {
+        font-size: 12px;
+    }
+}
+
+/* ===================================
+   DESKTOP STYLES (≥ 992px)
+   Multi-column layouts with enhanced spacing
+   =================================== */
+
+@media (width >= 992px) {
+    /* Global Desktop Adjustments */
+    .container-fluid {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    
+    /* Header Section - Desktop */
+    .greeting-text {
+        font-size: 32px;
+    }
+    
+    /* Financial Metrics - Desktop */
+    .metric-card {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .metric-value {
+        font-size: 28px;
+    }
+    
+    /* Activity and Transfer - Desktop */
+    .chart-placeholder {
+        height: 250px;
+    }
+    
+    /* Transactions - Desktop */
+    .transactions-list {
+        max-height: 450px;
+    }
+    
+    /* Analytics - Desktop */
+    .donut-chart-placeholder {
+        height: 300px;
+    }
+    
+    .progress-placeholder {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .bar-chart-placeholder {
+        height: 250px;
+    }
+    
+    /* Card Management - Desktop */
+    .credit-card {
+        max-width: 380px;
+    }
+    
+    .card-number {
+        font-size: 24px;
+    }
+    
+    /* Settings and Profile - Desktop */
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+    }
+    
+    /* Bottom Navigation - Desktop */
+    .bottom-navigation {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .nav-item {
+        max-width: 140px;
+    }
+    
+    .nav-item i {
+        font-size: 24px;
+    }
+    
+    .nav-item span {
+        font-size: 12px;
+    }
+}
+
+/* ===================================
+   LARGE DESKTOP STYLES (≥ 1280px)
+   Enhanced spacing for larger screens
+   =================================== */
+
+@media (width >= 1280px) {
+    .container-fluid {
+        max-width: 1600px;
+    }
+    
+    /* Enhanced spacing for large screens */
+    .financial-metrics,
+    .activity-transfer-section,
+    .transactions-section,
+    .analytics-section,
+    .card-management-section,
+    .settings-profile-section {
+        padding: var(--spacing-2xl) 0;
+    }
+}
+
+/* ===================================
+   EXTRA LARGE DESKTOP STYLES (≥ 1440px)
+   Optimal reading width for very large screens
+   =================================== */
+
+@media (width >= 1440px) {
+    .container-fluid {
+        max-width: 1800px;
+    }
+    
+    /* Optimal reading width for very large screens */
+    .greeting-text {
+        font-size: 36px;
+    }
+    
+    .metric-value {
+        font-size: 32px;
+    }
+}
+
+/* ===================================
+   ULTRA WIDE DESKTOP STYLES (≥ 1920px)
+   Maximum comfortable viewing width
+   =================================== */
+
+@media (width >= 1920px) {
+    .container-fluid {
+        max-width: 2000px;
+    }
+    
+    /* Maximum comfortable reading width */
+    .chart-placeholder {
+        height: 280px;
+    }
+    
+    .donut-chart-placeholder {
+        height: 320px;
+    }
+}
+
+/* ===================================
+   LANDSCAPE MOBILE ORIENTATION
+   Reduced vertical spacing for landscape mode
+   =================================== */
+
+@media (width <= 991px) and (orientation: landscape) {
+    /* Reduce vertical spacing in landscape mode */
+    .financial-metrics,
+    .activity-transfer-section,
+    .transactions-section,
+    .analytics-section,
+    .card-management-section,
+    .settings-profile-section {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .chart-placeholder,
+    .donut-chart-placeholder,
+    .bar-chart-placeholder {
+        height: 180px;
+    }
+    
+    .transactions-list {
+        max-height: 250px;
+    }
+    
+    .progress-placeholder {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* ===================================
+   PRINT STYLES
+   Optimized for printing with hidden interactive elements
+   =================================== */
+
+@media print {
+    /* Hide navigation and interactive elements */
+    .bottom-navigation,
+    .notification-icon,
+    .add-card-button,
+    .send-button,
+    .logout-button {
+        display: none !important;
+    }
+    
+    /* Remove shadows and backgrounds for print */
+    .metric-card,
+    .spending-activity-section,
+    .quick-transfer-section,
+    .transactions-container,
+    .category-chart-section,
+    .budget-section,
+    .income-expenses-section,
+    .subscriptions-section,
+    .cards-section,
+    .card-settings-section,
+    .profile-card,
+    .settings-group {
+        box-shadow: none !important;
+        border: 1px solid #ddd;
+    }
+    
+    /* Ensure proper page breaks */
+    .financial-metrics,
+    .activity-transfer-section,
+    .transactions-section,
+    .analytics-section,
+    .card-management-section {
+        break-inside: avoid;
+    }
+    
+    /* Remove fixed positioning */
+    body {
+        padding-bottom: 0;
+    }
+}

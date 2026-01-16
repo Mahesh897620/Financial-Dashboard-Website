@@ -1,0 +1,1546 @@
+/* ===================================
+   FINANCIAL DASHBOARD - MAIN STYLES
+   
+   Table of Contents:
+   1. CSS Variables (Colors, Spacing, Typography)
+   2. Base Styles & Resets
+   3. Utility Classes
+   4. Accessibility & Focus States
+   5. Header Section
+   6. Financial Metrics Overview
+   7. Spending Activity & Quick Transfer
+   8. Recent Transactions
+   9. Analytics Sections (Category, Budget, Income vs Expenses, Subscriptions)
+   10. Card Management (Cards, Settings, Details)
+   11. Settings & Profile
+   12. Bottom Navigation
+   
+   Note: Responsive styles are in responsive.css
+   =================================== */
+
+/* ===================================
+   1. CSS VARIABLES
+   =================================== */
+
+:root {
+    /* Color Palette - Refined for better visual hierarchy */
+    --color-primary-bg: #F8F9FC;
+    --color-card-bg: #FFF;
+    --color-primary-accent: #5B52E5;
+    --color-success: #10B981;
+    --color-danger: #EF4444;
+    --color-text-primary: #1A202C;
+    --color-text-secondary: #718096;
+    --color-border: #E2E8F0;
+    
+    /* Spacing System (multiples of 4px) */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    
+    /* Border Radius - Refined for modern look */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+    
+    /* Shadows - Enhanced depth */
+    --shadow-sm: 0 1px 3px rgb(0 0 0 / 6%);
+    --shadow-md: 0 4px 12px rgb(0 0 0 / 8%);
+    --shadow-lg: 0 10px 24px rgb(0 0 0 / 12%);
+    
+    /* Typography - Refined sizes and line heights */
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 30px;
+    --font-size-4xl: 36px;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Line Heights */
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+}
+
+/* ===================================
+   2. BASE STYLES & RESETS
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-primary-bg);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    letter-spacing: -0.01em;
+    padding-bottom: 80px;
+}
+
+/* ===================================
+   3. UTILITY CLASSES
+   =================================== */
+
+.text-primary {
+    color: var(--color-text-primary);
+}
+
+.text-secondary {
+    color: var(--color-text-secondary);
+}
+
+.text-success {
+    color: var(--color-success);
+}
+
+.text-danger {
+    color: var(--color-danger);
+}
+
+.bg-card {
+    background-color: var(--color-card-bg);
+}
+
+/* ===================================
+   4. ACCESSIBILITY & FOCUS STATES
+   Enhanced keyboard navigation and screen reader support
+   =================================== */
+
+/* Skip to main content link for screen readers */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: var(--spacing-md);
+    background-color: var(--color-primary-accent);
+    color: white;
+    text-decoration: none;
+}
+
+.skip-to-main:focus {
+    left: 50%;
+    transform: translateX(-50%);
+    top: var(--spacing-md);
+}
+
+/* Enhanced focus states for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--color-primary-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* Remove default focus outline but keep for keyboard users */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Ensure interactive elements are keyboard accessible */
+.notification-icon:focus-visible,
+.contact-item:focus-visible,
+.transaction-item:focus-visible {
+    outline: 3px solid var(--color-primary-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-md);
+}
+
+/* ===================================
+   6. FINANCIAL METRICS OVERVIEW
+   Metric cards displaying balance, income, expenses, savings
+   =================================== */
+
+.financial-metrics {
+    padding: var(--spacing-xl) 0;
+}
+
+.metric-card {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.metric-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--spacing-sm);
+}
+
+.percentage-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+}
+
+.percentage-indicator.positive {
+    background-color: rgb(16 185 129 / 10%);
+    color: var(--color-success);
+}
+
+.percentage-indicator.negative {
+    background-color: rgb(239 68 68 / 10%);
+    color: var(--color-danger);
+}
+
+.percentage-indicator i {
+    font-size: var(--font-size-xs);
+}
+
+.metric-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.metric-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+    margin: 0;
+}
+
+.metric-value {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.02em;
+}
+
+/* ===================================
+   7. SPENDING ACTIVITY & QUICK TRANSFER
+   Chart visualization and money transfer interface
+   =================================== */
+
+.activity-transfer-section {
+    padding: var(--spacing-xl) 0;
+}
+
+/* Spending Activity Styles */
+.spending-activity-section {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.spending-activity-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.spending-activity-section h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.time-period {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+.chart-container {
+    width: 100%;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-placeholder {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, rgb(79 70 229 / 10%) 0%, rgb(16 185 129 / 10%) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-placeholder::before {
+    content: 'Chart Visualization';
+    position: absolute;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Quick Transfer Styles */
+.quick-transfer-section {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.quick-transfer-section h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-lg) 0;
+}
+
+.contacts-list {
+    display: flex;
+    gap: var(--spacing-md);
+    overflow-x: auto;
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+}
+
+.contacts-list::-webkit-scrollbar {
+    height: 6px;
+}
+
+.contacts-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.contacts-list::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: var(--radius-full);
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    min-width: 70px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-2px);
+}
+
+.contact-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 3px solid var(--color-border);
+    transition: border-color 0.2s ease;
+}
+
+.contact-item:hover .contact-avatar {
+    border-color: var(--color-primary-accent);
+}
+
+.contact-name {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+}
+
+.transfer-input-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background-color: var(--color-primary-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-sm);
+}
+
+.currency-symbol {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    padding-left: var(--spacing-sm);
+}
+
+.transfer-amount {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    padding: var(--spacing-sm);
+    outline: none;
+}
+
+.transfer-amount::placeholder {
+    color: var(--color-text-secondary);
+}
+
+/* Remove number input arrows */
+.transfer-amount::-webkit-outer-spin-button,
+.transfer-amount::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+.transfer-amount[type="number"] {
+    appearance: textfield;
+}
+
+.send-button {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary-accent);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.send-button:hover {
+    background-color: #4A44D1;
+    transform: scale(1.05);
+}
+
+.send-button:active {
+    transform: scale(0.95);
+}
+
+.send-button i {
+    font-size: var(--font-size-lg);
+    color: white;
+}
+
+/* ===================================
+   5. HEADER SECTION
+   User greeting, profile, and notifications
+   =================================== */
+
+.dashboard-header {
+    background-color: var(--color-card-bg);
+    padding: var(--spacing-lg) 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+/* Greeting Section */
+.greeting-section {
+    flex: 1;
+}
+
+.greeting-text {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.02em;
+}
+
+.tagline {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.notification-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary-bg);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.notification-icon:hover {
+    background-color: var(--color-border);
+}
+
+.notification-icon i {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-primary);
+}
+
+.notification-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-danger);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-card-bg);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 2px solid var(--color-border);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    line-height: 1.2;
+}
+
+.user-status {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    line-height: 1.2;
+}
+
+/* ===================================
+   8. RECENT TRANSACTIONS
+   Transaction list with icons, descriptions, and amounts
+   =================================== */
+
+.transactions-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.transactions-container {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.transactions-container .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.transactions-container h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-primary-accent);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: color 0.2s ease;
+}
+
+.view-all-link:hover {
+    color: #4A44D1;
+}
+
+.view-all-link i {
+    font-size: var(--font-size-sm);
+    transition: transform 0.2s ease;
+}
+
+.view-all-link:hover i {
+    transform: translateX(2px);
+}
+
+.transactions-list {
+    max-height: 450px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+}
+
+.transactions-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.transactions-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.transactions-list::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: var(--radius-full);
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.transaction-item:hover {
+    background-color: var(--color-primary-bg);
+}
+
+.transaction-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.transaction-icon i {
+    font-size: var(--font-size-xl);
+    color: white;
+}
+
+/* Transaction icon category colors */
+.transaction-icon.shopping {
+    background-color: #8B5CF6;
+}
+
+.transaction-icon.income {
+    background-color: var(--color-success);
+}
+
+.transaction-icon.food {
+    background-color: #F59E0B;
+}
+
+.transaction-icon.transport {
+    background-color: #3B82F6;
+}
+
+.transaction-icon.entertainment {
+    background-color: #EC4899;
+}
+
+.transaction-icon.utilities {
+    background-color: #6366F1;
+}
+
+.transaction-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.transaction-name {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.transaction-date {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.transaction-amount {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    flex-shrink: 0;
+}
+
+.transaction-amount.positive {
+    color: var(--color-success);
+}
+
+.transaction-amount.negative {
+    color: var(--color-danger);
+}
+
+/* ===================================
+   9. ANALYTICS SECTIONS
+   Category spending, budget, income vs expenses, subscriptions
+   =================================== */
+
+.analytics-section {
+    padding: var(--spacing-xl) 0;
+}
+
+/* Spending by Category Styles */
+.category-chart-section {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.category-chart-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.category-chart-section h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.time-filter {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-card-bg);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    outline: none;
+}
+
+.time-filter:hover {
+    border-color: var(--color-primary-accent);
+}
+
+.time-filter:focus {
+    border-color: var(--color-primary-accent);
+    box-shadow: 0 0 0 3px rgb(79 70 229 / 10%);
+}
+
+/* Donut chart using conic-gradient - Creates a multi-colored pie chart effect */
+.donut-chart-placeholder {
+    width: 100%;
+    height: 300px;
+
+    /* Conic gradient creates pie chart segments with different colors */
+    background: conic-gradient(
+        from 0deg,
+        #8B5CF6 0deg 120deg,    /* Purple segment */
+        #F59E0B 120deg 200deg,  /* Orange segment */
+        #3B82F6 200deg 260deg,  /* Blue segment */
+        #EC4899 260deg 310deg,  /* Pink segment */
+        #10B981 310deg 360deg   /* Green segment */
+    );
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Creates the donut hole in the center */
+.donut-chart-placeholder::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-full);
+}
+
+/* Label text in the center */
+.donut-chart-placeholder::after {
+    content: 'Category Chart';
+    position: absolute;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+    z-index: 1;
+}
+
+/* Monthly Budget Styles */
+.budget-section {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.budget-section h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-lg) 0;
+}
+
+.budget-progress {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Circular progress indicator using conic-gradient - Shows 70% completion */
+.progress-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--radius-full);
+
+    /* Conic gradient creates circular progress: 252deg = 70% of 360deg */
+    background: conic-gradient(
+        var(--color-primary-accent) 0deg 252deg,  /* Filled portion (70%) */
+        var(--color-border) 252deg 360deg         /* Remaining portion (30%) */
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Creates the inner circle to make it a ring */
+.progress-placeholder::before {
+    content: '';
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-full);
+}
+
+/* Percentage text in the center */
+.progress-placeholder::after {
+    content: '70%';
+    position: absolute;
+    font-size: var(--font-size-3xl);
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-bold);
+    z-index: 1;
+}
+
+/* Income vs Expenses Styles */
+.income-expenses-section {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.income-expenses-section h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-lg) 0;
+}
+
+.bar-chart-placeholder {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-primary-bg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.bar-chart-placeholder::before {
+    content: '';
+    width: 40px;
+    height: 70%;
+    background: linear-gradient(to top, var(--color-success), rgb(16 185 129 / 60%));
+    border-radius: var(--radius-sm);
+}
+
+.bar-chart-placeholder::after {
+    content: '';
+    width: 40px;
+    height: 50%;
+    background: linear-gradient(to top, var(--color-danger), rgb(239 68 68 / 60%));
+    border-radius: var(--radius-sm);
+}
+
+.chart-legend {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-sm);
+}
+
+.legend-color.income {
+    background-color: var(--color-success);
+}
+
+.legend-color.expenses {
+    background-color: var(--color-danger);
+}
+
+/* Recurring Subscriptions Styles */
+.subscriptions-section {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.subscriptions-section h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-lg) 0;
+}
+
+.subscription-total {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary-accent);
+    margin: 0;
+}
+
+/* ===================================
+   10. CARD MANAGEMENT
+   Credit card display, settings, and details
+   =================================== */
+
+.card-management-section {
+    padding: var(--spacing-xl) 0;
+}
+
+/* Your Cards Styles */
+.cards-section {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.cards-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.cards-section h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.add-card-button {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary-accent);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.add-card-button:hover {
+    background-color: #4A44D1;
+    transform: scale(1.05);
+}
+
+.add-card-button:active {
+    transform: scale(0.95);
+}
+
+.add-card-button i {
+    font-size: var(--font-size-xl);
+    color: white;
+}
+
+.card-display {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Credit Card Styles */
+.credit-card {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1.586;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.credit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px rgb(0 0 0 / 15%);
+}
+
+/* Card Chip - Creates a metallic chip appearance using gradients and pseudo-elements */
+.card-chip {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+    border-radius: var(--radius-sm);
+    position: relative;
+    box-shadow: inset 0 2px 4px rgb(0 0 0 / 20%);
+}
+
+/* Inner border for chip detail */
+.card-chip::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgb(0 0 0 / 10%);
+    border-radius: 2px;
+}
+
+/* Metallic shine effect */
+.card-chip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, transparent 30%, rgb(255 255 255 / 30%) 50%, transparent 70%);
+}
+
+/* Card Number */
+.card-number {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-medium);
+    color: white;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+    font-family: 'Courier New', monospace;
+}
+
+/* Card Info */
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card-holder,
+.card-expiry {
+    color: white;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+}
+
+.card-holder {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-expiry {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    font-family: 'Courier New', monospace;
+}
+
+/* Card Settings Styles */
+.card-settings-section {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.card-settings-section h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-lg) 0;
+}
+
+.setting-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.setting-item label {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.current-limit {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+/* Range Slider Styles */
+.limit-slider {
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--color-border);
+    outline: none;
+    transition: background 0.2s ease;
+}
+
+.limit-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-full);
+    background: var(--color-primary-accent);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.limit-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.limit-slider::-webkit-slider-thumb:active {
+    transform: scale(0.95);
+}
+
+.limit-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-full);
+    background: var(--color-primary-accent);
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.limit-slider::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.limit-slider::-moz-range-thumb:active {
+    transform: scale(0.95);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Card Details Styles */
+.card-details-section {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.card-details-section h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-lg) 0;
+}
+
+.details-placeholder {
+    padding: var(--spacing-xl);
+    background-color: var(--color-primary-bg);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.details-placeholder p {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* ===================================
+   11. SETTINGS & PROFILE
+   User profile, account settings, preferences, logout
+   =================================== */
+
+.settings-profile-section {
+    padding: var(--spacing-xl) 0;
+}
+
+/* Profile Card Styles */
+.profile-card {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 4px solid var(--color-border);
+    margin-bottom: var(--spacing-md);
+}
+
+.profile-name {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.profile-email {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+.membership-badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Settings Group Styles */
+.settings-group {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.settings-group-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+.settings-group .setting-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.settings-group .setting-item:hover {
+    background-color: var(--color-primary-bg);
+}
+
+.settings-group .setting-item i:first-child {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    flex-shrink: 0;
+}
+
+.setting-label {
+    flex: 1;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
+
+.settings-group .setting-item .bi-chevron-right {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    flex-shrink: 0;
+}
+
+/* Toggle Switch - Custom checkbox styled as an iOS-style toggle */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+/* Hide the default checkbox */
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider background track */
+.toggle-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: var(--color-border);
+    transition: background-color 0.3s ease;
+    border-radius: var(--radius-full);
+}
+
+/* The circular knob that slides */
+.toggle-switch .slider::before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: transform 0.3s ease;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Change background color when checked */
+.toggle-switch input:checked + .slider {
+    background-color: var(--color-primary-accent);
+}
+
+/* Slide the knob to the right when checked */
+.toggle-switch input:checked + .slider::before {
+    transform: translateX(22px);
+}
+
+/* Focus state for keyboard navigation */
+.toggle-switch input:focus + .slider {
+    box-shadow: 0 0 0 3px rgb(79 70 229 / 10%);
+}
+
+/* Logout Section Styles */
+.logout-section {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.logout-button {
+    width: 100%;
+    padding: var(--spacing-md);
+    background-color: var(--color-danger);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.logout-button:hover {
+    background-color: #DC2626;
+    transform: translateY(-1px);
+}
+
+.logout-button:active {
+    transform: translateY(0);
+}
+
+.logout-button i {
+    font-size: var(--font-size-lg);
+}
+
+.version-info {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    margin: var(--spacing-md) 0 0 0;
+}
+
+/* ===================================
+   12. BOTTOM NAVIGATION
+   Fixed navigation bar with icons and labels
+   =================================== */
+
+.bottom-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-card-bg);
+    border-top: 1px solid var(--color-border);
+    box-shadow: 0 -2px 10px rgb(0 0 0 / 5%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    z-index: 1000;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    transition: color 0.2s ease, transform 0.2s ease;
+    flex: 1;
+    max-width: 100px;
+}
+
+.nav-item:hover {
+    color: var(--color-primary-accent);
+    transform: translateY(-2px);
+}
+
+.nav-item.active {
+    color: var(--color-primary-accent);
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-primary-accent);
+    border-radius: var(--radius-full) var(--radius-full) 0 0;
+}
+
+.nav-item i {
+    font-size: 24px;
+    transition: transform 0.2s ease;
+}
+
+.nav-item:hover i {
+    transform: scale(1.1);
+}
+
+.nav-item span {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+}
+

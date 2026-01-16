@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nova Financial Dashboard - Personal Finance Management">
+    <title>Nova Financial Dashboard</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="dashboard-header">
+        <div class="container-fluid">
+            <div class="header-content">
+                <div class="greeting-section">
+                    <h1 class="greeting-text">Good morning, John</h1>
+                    <p class="tagline">Here's what's happening with your finances</p>
+                </div>
+                <div class="profile-section">
+                    <button class="notification-icon" type="button" aria-label="Notifications - You have new notifications">
+                        <i class="bi bi-bell" aria-hidden="true"></i>
+                        <span class="notification-badge"></span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='24' fill='%235B52E5'/%3E%3Ctext x='24' y='30' font-family='Arial' font-size='20' fill='white' text-anchor='middle' font-weight='bold'%3EJD%3C/text%3E%3C/svg%3E" alt="John Doe's profile picture" class="avatar">
+                        <div class="user-info">
+                            <span class="user-name">John Doe</span>
+                            <span class="user-status">Premium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Financial Metrics Overview Section -->
+    <section class="financial-metrics" aria-label="Financial metrics overview">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Total Balance Card -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="metric-card">
+                        <div class="metric-header">
+                            <div class="percentage-indicator positive">
+                                <i class="bi bi-arrow-up" aria-hidden="true"></i>
+                                <span>2.4%</span>
+                            </div>
+                        </div>
+                        <div class="metric-body">
+                            <p class="metric-label">Total Balance</p>
+                            <h2 class="metric-value">$24,563.89</h2>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Income Card -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="metric-card">
+                        <div class="metric-header">
+                            <div class="percentage-indicator positive">
+                                <i class="bi bi-arrow-up" aria-hidden="true"></i>
+                                <span>8.2%</span>
+                            </div>
+                        </div>
+                        <div class="metric-body">
+                            <p class="metric-label">Income</p>
+                            <h2 class="metric-value">$12,450.00</h2>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Expenses Card -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="metric-card">
+                        <div class="metric-header">
+                            <div class="percentage-indicator negative">
+                                <i class="bi bi-arrow-down" aria-hidden="true"></i>
+                                <span>3.1%</span>
+                            </div>
+                        </div>
+                        <div class="metric-body">
+                            <p class="metric-label">Expenses</p>
+                            <h2 class="metric-value">$8,234.56</h2>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Savings Card -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <article class="metric-card">
+                        <div class="metric-header">
+                            <div class="percentage-indicator positive">
+                                <i class="bi bi-arrow-up" aria-hidden="true"></i>
+                                <span>5.7%</span>
+                            </div>
+                        </div>
+                        <div class="metric-body">
+                            <p class="metric-label">Savings</p>
+                            <h2 class="metric-value">$6,789.12</h2>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spending Activity and Quick Transfer Section -->
+    <section class="activity-transfer-section">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Spending Activity -->
+                <div class="col-12 col-lg-6">
+                    <div class="spending-activity-section">
+                        <div class="section-header">
+                            <h3>Spending Activity</h3>
+                            <span class="time-period">Last 7 days</span>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-placeholder"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Transfer -->
+                <div class="col-12 col-lg-6">
+                    <div class="quick-transfer-section">
+                        <h3>Quick Transfer</h3>
+                        <div class="contacts-list">
+                            <div class="contact-item">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Ccircle cx='28' cy='28' r='28' fill='%23EC4899'/%3E%3Ctext x='28' y='35' font-family='Arial' font-size='22' fill='white' text-anchor='middle' font-weight='bold'%3ES%3C/text%3E%3C/svg%3E" alt="Sarah" class="contact-avatar">
+                                <span class="contact-name">Sarah</span>
+                            </div>
+                            <div class="contact-item">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Ccircle cx='28' cy='28' r='28' fill='%233B82F6'/%3E%3Ctext x='28' y='35' font-family='Arial' font-size='22' fill='white' text-anchor='middle' font-weight='bold'%3EM%3C/text%3E%3C/svg%3E" alt="Michael" class="contact-avatar">
+                                <span class="contact-name">Michael</span>
+                            </div>
+                            <div class="contact-item">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Ccircle cx='28' cy='28' r='28' fill='%2310B981'/%3E%3Ctext x='28' y='35' font-family='Arial' font-size='22' fill='white' text-anchor='middle' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E" alt="Emma" class="contact-avatar">
+                                <span class="contact-name">Emma</span>
+                            </div>
+                            <div class="contact-item">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Ccircle cx='28' cy='28' r='28' fill='%23F59E0B'/%3E%3Ctext x='28' y='35' font-family='Arial' font-size='22' fill='white' text-anchor='middle' font-weight='bold'%3ED%3C/text%3E%3C/svg%3E" alt="David" class="contact-avatar">
+                                <span class="contact-name">David</span>
+                            </div>
+                            <div class="contact-item">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Ccircle cx='28' cy='28' r='28' fill='%238B5CF6'/%3E%3Ctext x='28' y='35' font-family='Arial' font-size='22' fill='white' text-anchor='middle' font-weight='bold'%3EL%3C/text%3E%3C/svg%3E" alt="Lisa" class="contact-avatar">
+                                <span class="contact-name">Lisa</span>
+                            </div>
+                        </div>
+                        <div class="transfer-input-group">
+                            <span class="currency-symbol" aria-hidden="true">$</span>
+                            <input type="number" class="transfer-amount" placeholder="0.00" min="0" step="0.01" aria-label="Transfer amount in dollars">
+                            <button class="send-button" type="button" aria-label="Send transfer">
+                                <i class="bi bi-send" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Transactions Section -->
+    <section class="transactions-section" aria-label="Recent transactions">
+        <div class="container-fluid">
+            <div class="transactions-container">
+                <div class="section-header">
+                    <h3>Recent Transactions</h3>
+                    <a href="#" class="view-all-link" aria-label="View all transactions">
+                        View All <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <ul class="transactions-list">
+                    <!-- Transaction Item 1 - Expense -->
+                    <li class="transaction-item">
+                        <div class="transaction-icon shopping" aria-hidden="true">
+                            <i class="bi bi-cart"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <p class="transaction-name">Amazon Purchase</p>
+                            <p class="transaction-date">Today, 2:30 PM</p>
+                        </div>
+                        <div class="transaction-amount negative">-$45.99</div>
+                    </li>
+
+                    <!-- Transaction Item 2 - Income -->
+                    <li class="transaction-item">
+                        <div class="transaction-icon income" aria-hidden="true">
+                            <i class="bi bi-arrow-down-circle"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <p class="transaction-name">Salary Deposit</p>
+                            <p class="transaction-date">Yesterday, 9:00 AM</p>
+                        </div>
+                        <div class="transaction-amount positive">+$3,500.00</div>
+                    </li>
+
+                    <!-- Transaction Item 3 - Expense -->
+                    <li class="transaction-item">
+                        <div class="transaction-icon food" aria-hidden="true">
+                            <i class="bi bi-cup-straw"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <p class="transaction-name">Starbucks Coffee</p>
+                            <p class="transaction-date">Yesterday, 3:45 PM</p>
+                        </div>
+                        <div class="transaction-amount negative">-$6.50</div>
+                    </li>
+
+                    <!-- Transaction Item 4 - Expense -->
+                    <li class="transaction-item">
+                        <div class="transaction-icon transport" aria-hidden="true">
+                            <i class="bi bi-car-front"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <p class="transaction-name">Uber Ride</p>
+                            <p class="transaction-date">2 days ago, 8:15 AM</p>
+                        </div>
+                        <div class="transaction-amount negative">-$18.75</div>
+                    </li>
+
+                    <!-- Transaction Item 5 - Expense -->
+                    <li class="transaction-item">
+                        <div class="transaction-icon entertainment" aria-hidden="true">
+                            <i class="bi bi-film"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <p class="transaction-name">Netflix Subscription</p>
+                            <p class="transaction-date">3 days ago, 12:00 PM</p>
+                        </div>
+                        <div class="transaction-amount negative">-$15.99</div>
+                    </li>
+
+                    <!-- Transaction Item 6 - Income -->
+                    <li class="transaction-item">
+                        <div class="transaction-icon income" aria-hidden="true">
+                            <i class="bi bi-arrow-down-circle"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <p class="transaction-name">Freelance Payment</p>
+                            <p class="transaction-date">4 days ago, 4:20 PM</p>
+                        </div>
+                        <div class="transaction-amount positive">+$850.00</div>
+                    </li>
+
+                    <!-- Transaction Item 7 - Expense -->
+                    <li class="transaction-item">
+                        <div class="transaction-icon shopping" aria-hidden="true">
+                            <i class="bi bi-bag"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <p class="transaction-name">Grocery Store</p>
+                            <p class="transaction-date">5 days ago, 6:30 PM</p>
+                        </div>
+                        <div class="transaction-amount negative">-$127.43</div>
+                    </li>
+
+                    <!-- Transaction Item 8 - Expense -->
+                    <li class="transaction-item">
+                        <div class="transaction-icon utilities" aria-hidden="true">
+                            <i class="bi bi-lightning-charge"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <p class="transaction-name">Electric Bill</p>
+                            <p class="transaction-date">6 days ago, 10:00 AM</p>
+                        </div>
+                        <div class="transaction-amount negative">-$89.50</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Sections -->
+    <section class="analytics-section">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Spending by Category -->
+                <div class="col-12 col-lg-6">
+                    <div class="category-chart-section">
+                        <div class="section-header">
+                            <h3>Spending by Category</h3>
+                            <select class="time-filter">
+                                <option>This Month</option>
+                                <option>Last Month</option>
+                                <option>Last 3 Months</option>
+                                <option>This Year</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <div class="donut-chart-placeholder"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monthly Budget -->
+                <div class="col-12 col-lg-6">
+                    <div class="budget-section">
+                        <h3>Monthly Budget</h3>
+                        <div class="budget-progress">
+                            <div class="progress-placeholder"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Income vs Expenses -->
+                <div class="col-12 col-lg-6">
+                    <div class="income-expenses-section">
+                        <h3>Income vs Expenses</h3>
+                        <div class="chart-container">
+                            <div class="bar-chart-placeholder"></div>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color income"></span>
+                                <span>Income</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color expenses"></span>
+                                <span>Expenses</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recurring Subscriptions -->
+                <div class="col-12 col-lg-6">
+                    <div class="subscriptions-section">
+                        <h3>Recurring Subscriptions</h3>
+                        <p class="subscription-total">$1,933.96/mo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Card Management Section -->
+    <section class="card-management-section">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Your Cards -->
+                <div class="col-12 col-lg-6">
+                    <div class="cards-section">
+                        <div class="section-header">
+                            <h3>Your Cards</h3>
+                            <button class="add-card-button" type="button" aria-label="Add new card">
+                                <i class="bi bi-plus"></i>
+                            </button>
+                        </div>
+                        <div class="card-display">
+                            <div class="credit-card">
+                                <div class="card-chip"></div>
+                                <div class="card-number">•••• •••• •••• 4829</div>
+                                <div class="card-info">
+                                    <div class="card-holder">John Doe</div>
+                                    <div class="card-expiry">12/25</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Settings -->
+                <div class="col-12 col-lg-6">
+                    <div class="card-settings-section">
+                        <h3>Card Settings</h3>
+                        <div class="setting-item">
+                            <label for="spending-limit">Daily Spending Limit</label>
+                            <p class="current-limit">$2,500.00</p>
+                            <input type="range" id="spending-limit" min="0" max="10000" value="2500" step="100" class="limit-slider">
+                            <div class="slider-labels">
+                                <span>$0</span>
+                                <span>$10,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Card Details -->
+                <div class="col-12">
+                    <div class="card-details-section">
+                        <h3>Card Details</h3>
+                        <div class="details-placeholder">
+                            <p>Additional card information and details will be displayed here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Settings and Profile Section -->
+    <section class="settings-profile-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <!-- Profile Card -->
+                    <div class="profile-card">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%235B52E5'/%3E%3Ctext x='50' y='62' font-family='Arial' font-size='40' fill='white' text-anchor='middle' font-weight='bold'%3EJD%3C/text%3E%3C/svg%3E" alt="User Profile" class="profile-avatar">
+                        <h4 class="profile-name">John Doe</h4>
+                        <p class="profile-email">john.doe@email.com</p>
+                        <span class="membership-badge">Premium Member</span>
+                    </div>
+
+                    <!-- Account Settings -->
+                    <div class="settings-group">
+                        <h4 class="settings-group-title">Account</h4>
+                        <div class="setting-item">
+                            <i class="bi bi-person"></i>
+                            <span class="setting-label">Personal Information</span>
+                            <i class="bi bi-chevron-right"></i>
+                        </div>
+                        <div class="setting-item">
+                            <i class="bi bi-shield-lock"></i>
+                            <span class="setting-label">Security &amp; Privacy</span>
+                            <i class="bi bi-chevron-right"></i>
+                        </div>
+                        <div class="setting-item">
+                            <i class="bi bi-credit-card"></i>
+                            <span class="setting-label">Payment Methods</span>
+                            <i class="bi bi-chevron-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Preferences -->
+                    <div class="settings-group">
+                        <h4 class="settings-group-title">Preferences</h4>
+                        <div class="setting-item">
+                            <i class="bi bi-bell"></i>
+                            <span class="setting-label">Notifications</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <i class="bi bi-moon"></i>
+                            <span class="setting-label">Dark Mode</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <i class="bi bi-fingerprint"></i>
+                            <span class="setting-label">Biometric Login</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="settings-group">
+                        <h4 class="settings-group-title">Support</h4>
+                        <div class="setting-item">
+                            <i class="bi bi-question-circle"></i>
+                            <span class="setting-label">Help Center</span>
+                            <i class="bi bi-chevron-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Logout -->
+                    <div class="logout-section">
+                        <button class="logout-button" type="button">
+                            <i class="bi bi-box-arrow-right"></i>
+                            Log Out
+                        </button>
+                        <p class="version-info">Version 2.1.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-navigation" aria-label="Main navigation">
+        <a href="#home" class="nav-item active" aria-current="page">
+            <i class="bi bi-house-door" aria-hidden="true"></i>
+            <span>Home</span>
+        </a>
+        <a href="#transactions" class="nav-item">
+            <i class="bi bi-list-ul" aria-hidden="true"></i>
+            <span>Transactions</span>
+        </a>
+        <a href="#analytics" class="nav-item">
+            <i class="bi bi-bar-chart" aria-hidden="true"></i>
+            <span>Analytics</span>
+        </a>
+        <a href="#cards" class="nav-item">
+            <i class="bi bi-credit-card" aria-hidden="true"></i>
+            <span>Cards</span>
+        </a>
+        <a href="#settings" class="nav-item">
+            <i class="bi bi-gear" aria-hidden="true"></i>
+            <span>Settings</span>
+        </a>
+    </nav>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

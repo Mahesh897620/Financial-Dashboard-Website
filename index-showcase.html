@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Financial - Design Showcase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 3rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .design-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .design-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .design-preview {
+            height: 250px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .design-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .design-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .design-badge.new {
+            background: #10b981;
+        }
+
+        .design-badge.recommended {
+            background: #f59e0b;
+        }
+
+        .design-content {
+            padding: 2rem;
+        }
+
+        .design-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .design-description {
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .design-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .design-features li {
+            padding: 0.5rem 0;
+            color: #4b5563;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .design-features li i {
+            color: #10b981;
+        }
+
+        .design-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            padding: 0.5rem 1rem;
+            background: #f3f4f6;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #4b5563;
+            font-weight: 500;
+        }
+
+        .btn-view {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-view:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            padding: 2rem;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Nova Financial Dashboard</h1>
+        <p class="subtitle">Choose your favorite design - All with interactive navigation!</p>
+
+        <div class="design-grid">
+            <!-- Sidebar Modern -->
+            <div class="design-card">
+                <div class="design-preview" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <span class="design-badge recommended">⭐ Recommended</span>
+                    <div style="color: white; text-align: center;">
+                        <i class="bi bi-layout-sidebar" style="font-size: 4rem;"></i>
+                        <p style="margin-top: 1rem; font-weight: 600;">Sidebar Layout</p>
+                    </div>
+                </div>
+                <div class="design-content">
+                    <h3 class="design-title">Sidebar Modern</h3>
+                    <p class="design-description">Professional dashboard with left sidebar navigation, perfect for desktop use.</p>
+                    <div class="design-meta">
+                        <span class="meta-tag">📱 Desktop First</span>
+                        <span class="meta-tag">🎨 Corporate</span>
+                    </div>
+                    <ul class="design-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Left sidebar navigation</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Top search & profile bar</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Upgrade card included</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Clean white content area</li>
+                    </ul>
+                    <a href="index-sidebar-modern.html" class="btn-view">View Design →</a>
+                </div>
+            </div>
+
+            <!-- Card Layout -->
+            <div class="design-card">
+                <div class="design-preview" style="background: #fafbfc;">
+                    <span class="design-badge new">✨ New</span>
+                    <div style="color: #24292f; text-align: center;">
+                        <i class="bi bi-grid-3x3-gap" style="font-size: 4rem;"></i>
+                        <p style="margin-top: 1rem; font-weight: 600;">Card Grid</p>
+                    </div>
+                </div>
+                <div class="design-content">
+                    <h3 class="design-title">Card Layout</h3>
+                    <p class="design-description">GitHub-inspired clean design with top navigation tabs and card-based layout.</p>
+                    <div class="design-meta">
+                        <span class="meta-tag">💻 All Devices</span>
+                        <span class="meta-tag">🎨 Minimal</span>
+                    </div>
+                    <ul class="design-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Top horizontal tabs</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Card-based layout</li>
+                        <li><i class="bi bi-check-circle-fill"></i> GitHub-style design</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Excellent readability</li>
+                    </ul>
+                    <a href="index-card-layout.html" class="btn-view">View Design →</a>
+                </div>
+            </div>
+
+            <!-- Interactive Dark -->
+            <div class="design-card">
+                <div class="design-preview" style="background: #0f172a;">
+                    <div style="color: white; text-align: center;">
+                        <i class="bi bi-moon-stars-fill" style="font-size: 4rem;"></i>
+                        <p style="margin-top: 1rem; font-weight: 600;">Dark Theme</p>
+                    </div>
+                </div>
+                <div class="design-content">
+                    <h3 class="design-title">Interactive Dark Mode</h3>
+                    <p class="design-description">Modern dark theme with purple accents and bottom navigation bar.</p>
+                    <div class="design-meta">
+                        <span class="meta-tag">📱 Mobile First</span>
+                        <span class="meta-tag">🌙 Dark Mode</span>
+                    </div>
+                    <ul class="design-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Bottom navigation bar</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Dark theme design</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Smooth animations</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Card hover effects</li>
+                    </ul>
+                    <a href="index-interactive-dark.html" class="btn-view">View Design →</a>
+                </div>
+            </div>
+
+            <!-- Glassmorphism -->
+            <div class="design-card">
+                <div class="design-preview" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div style="color: white; text-align: center;">
+                        <i class="bi bi-droplet-fill" style="font-size: 4rem;"></i>
+                        <p style="margin-top: 1rem; font-weight: 600;">Glass Effect</p>
+                    </div>
+                </div>
+                <div class="design-content">
+                    <h3 class="design-title">Glassmorphism</h3>
+                    <p class="design-description">Trendy frosted glass effects with animated gradient background.</p>
+                    <div class="design-meta">
+                        <span class="meta-tag">🎨 Trendy</span>
+                        <span class="meta-tag">✨ Animated</span>
+                    </div>
+                    <ul class="design-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Frosted glass cards</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Gradient background</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Floating animations</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Modern aesthetics</li>
+                    </ul>
+                    <a href="index-glassmorphism.html" class="btn-view">View Design →</a>
+                </div>
+            </div>
+
+            <!-- Minimal -->
+            <div class="design-card">
+                <div class="design-preview" style="background: #ffffff;">
+                    <div style="color: #000000; text-align: center;">
+                        <i class="bi bi-circle" style="font-size: 4rem;"></i>
+                        <p style="margin-top: 1rem; font-weight: 600;">Minimalist</p>
+                    </div>
+                </div>
+                <div class="design-content">
+                    <h3 class="design-title">Minimal Design</h3>
+                    <p class="design-description">Clean black & white design with typography focus and Apple-inspired aesthetics.</p>
+                    <div class="design-meta">
+                        <span class="meta-tag">⚪ B&W</span>
+                        <span class="meta-tag">🍎 Apple Style</span>
+                    </div>
+                    <ul class="design-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Minimalist layout</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Typography-focused</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Clean aesthetics</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Floating bottom nav</li>
+                    </ul>
+                    <a href="index-minimal.html" class="btn-view">View Design →</a>
+                </div>
+            </div>
+
+            <!-- Original -->
+            <div class="design-card">
+                <div class="design-preview" style="background: #F5F7FA;">
+                    <div style="color: #1F2937; text-align: center;">
+                        <i class="bi bi-file-earmark-text" style="font-size: 4rem;"></i>
+                        <p style="margin-top: 1rem; font-weight: 600;">Original</p>
+                    </div>
+                </div>
+                <div class="design-content">
+                    <h3 class="design-title">Original Static</h3>
+                    <p class="design-description">Complete static dashboard with all sections visible on one page.</p>
+                    <div class="design-meta">
+                        <span class="meta-tag">📄 Static</span>
+                        <span class="meta-tag">📋 Complete</span>
+                    </div>
+                    <ul class="design-features">
+                        <li><i class="bi bi-check-circle-fill"></i> All sections visible</li>
+                        <li><i class="bi bi-check-circle-fill"></i> No navigation needed</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Spec-compliant</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Fully tested</li>
+                    </ul>
+                    <a href="index.html" class="btn-view">View Design →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>All designs feature interactive navigation!</strong></p>
+            <p>Click on any design to explore. Server running at <a href="http://localhost:8000">localhost:8000</a></p>
+            <p style="margin-top: 1rem; opacity: 0.8;">Made with ❤️ using HTML, CSS, Bootstrap & JavaScript</p>
+        </div>
+    </div>
+</body>
+</html>
