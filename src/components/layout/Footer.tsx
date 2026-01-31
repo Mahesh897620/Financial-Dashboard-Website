@@ -44,7 +44,7 @@ export const Footer = () => {
               <div className="h-8 w-8 rounded-lg gradient-primary flex items-center justify-center">
                 <span className="text-white font-bold text-lg">F</span>
               </div>
-              <span className="text-xl font-bold gradient-text">FinDash</span>
+              <span className="text-xl font-bold gradient-text">FinanceHub</span>
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
               Your personal finance dashboard for smarter money management.
@@ -136,7 +136,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} FinDash. All rights reserved.
+            © {currentYear} FinanceHub. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
             Made with ❤️ for better financial management

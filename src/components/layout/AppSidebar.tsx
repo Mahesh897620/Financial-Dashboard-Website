@@ -80,7 +80,7 @@ export function AppSidebar() {
           </div>
           {!isCollapsed && (
             <div className="flex flex-col animate-fade-in">
-              <span className="font-bold text-lg gradient-text">FinDash</span>
+              <span className="font-bold text-lg gradient-text">FinanceHub</span>
               <span className="text-xs text-muted-foreground">Premium</span>
             </div>
           )}

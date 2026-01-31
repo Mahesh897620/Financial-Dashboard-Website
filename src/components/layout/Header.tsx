@@ -31,7 +31,7 @@ export const Header = () => {
           <div className="h-8 w-8 rounded-lg gradient-primary flex items-center justify-center">
             <span className="text-white font-bold text-lg">F</span>
           </div>
-          <span className="text-xl font-bold gradient-text">FinDash</span>
+          <span className="text-xl font-bold gradient-text">FinanceHub</span>
         </Link>
 
         {/* Desktop Navigation */}
