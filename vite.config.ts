@@ -12,7 +12,7 @@ export default defineConfig({
     },
   },
   plugins: [react()],
-  base: "/Financial-Dashboard-Website/",
+  base: "./",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
